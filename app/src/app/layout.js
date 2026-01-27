@@ -1,34 +1,32 @@
 import "./globals.css";
+import { Montserrat } from "next/font/google";
+
 
 import Header from "@/components/Header";
 import Footer from "@/components/footer";
+
 
 export const metadata = {
   title: "Hecho a Mano",
   description: "Productos hechos a mano",
 };
 
+
+// Fuente base (texto normal)
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-montserrat",
+});
+
+
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-        <link
-          href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap"
-          rel="stylesheet"
-        />
-
-        <link
-          href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="flex flex-col min-h-screen">
+      <body className={`flex flex-col ${montserrat.className}`}>
         <Header />
-
-        <main className="flex-grow">{children}</main>
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
