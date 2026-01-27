@@ -41,7 +41,7 @@ body::before {
   background-position: center center;
   background-size: 400px;
   /* ajusta a tu gusto */
-  opacity: 0.2;
+  opacity: 0.0;
   /* marca de agua */
   pointer-events: none;
   z-index: -1;
