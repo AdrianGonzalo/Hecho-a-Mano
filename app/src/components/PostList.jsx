@@ -1,22 +1,30 @@
 "use client";
 
+
 import { useState } from "react";
 import PostCard from "./PostCard";
+import ImageModal from "./ImageModal";
+
 
 const INITIAL_LIMIT = 4;
+
 
 export default function PostList({ posts }) {
     const [activeCategory, setActiveCategory] = useState("all");
     const [showAll, setShowAll] = useState(false);
+    const [selectedPost, setSelectedPost] = useState(null);
+
 
     const filteredPosts =
         activeCategory === "all"
             ? posts
             : posts.filter((post) => post.category === activeCategory);
 
+
     const visiblePosts = showAll
         ? filteredPosts
         : filteredPosts.slice(0, INITIAL_LIMIT);
+
 
     return (
         <section className="w-full flex flex-col gap-10">
@@ -34,18 +42,24 @@ export default function PostList({ posts }) {
                         active={activeCategory}
                         onClick={(value) => {
                             setActiveCategory(value);
-                            setShowAll(false); // reset al cambiar filtro
+                            setShowAll(false);
                         }}
                     />
                 ))}
             </div>
 
+
             {/* Grid */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 max-w-md mx-auto w-full">
                 {visiblePosts.map((post) => (
-                    <PostCard key={post._id} post={post} />
+                    <PostCard
+                        key={post._id}
+                        post={post}
+                        onClick={setSelectedPost}
+                    />
                 ))}
             </div>
+
 
             {/* Botón ver más / ver menos */}
             {filteredPosts.length > INITIAL_LIMIT && (
@@ -53,7 +67,7 @@ export default function PostList({ posts }) {
                     onClick={() => {
                         setShowAll(!showAll);
 
-                        // Al volver a "ver menos", subimos suavemente
+
                         if (showAll) {
                             window.scrollTo({
                                 top: 0,
@@ -61,23 +75,32 @@ export default function PostList({ posts }) {
                             });
                         }
                     }}
-                    className="mx-auto px-6 py-2 border rounded-full text-sm bg-white/70 hover:bg-white transition"
+                    className="mx-auto px-6 py-2 border rounded-full text-lg bg-white/70 hover:bg-white transition"
                 >
-                    {showAll ? "Ver menos" : "Ver más manualidades"}
+                    {showAll ? "Ver menos" : "Ver más"}
                 </button>
             )}
+
+
+            {/* Modal */}
+            <ImageModal
+                post={selectedPost}
+                onClose={() => setSelectedPost(null)}
+            />
         </section>
     );
 }
 
+
 function FilterButton({ label, value, active, onClick }) {
     const isActive = active === value;
+
 
     return (
         <button
             onClick={() => onClick(value)}
-            className={`px-4 py-2 rounded-full border text-sm transition
-        ${isActive
+            className={`px-4 py-2 rounded-full border transition
+${isActive
                     ? "bg-[#5b4a3f] text-white"
                     : "bg-white/60 text-[#5b4a3f]"
                 }`}

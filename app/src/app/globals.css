@@ -1,9 +1,15 @@
 @import "tailwindcss";
 
+/* -----------------------------
+   Variables
+----------------------------- */
 :root {
   --backgroundHome: url("/textures/wall2.png");
 }
 
+/* -----------------------------
+   Tipografías
+----------------------------- */
 .font-titulo {
   font-family: "Fleur De Leah", cursive;
 }
@@ -12,8 +18,32 @@
   font-family: "Faculty Glyphic", sans-serif;
 }
 
+/* -----------------------------
+   Fondo base (textura)
+----------------------------- */
 body {
   background-image: var(--backgroundHome);
   background-repeat: repeat;
   background-color: #f5f5dc;
+  position: relative;
+  z-index: 0;
+}
+
+/* -----------------------------
+   Logo fijo detrás de TODO
+----------------------------- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("/Logo.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 400px;
+  /* ajusta a tu gusto */
+  opacity: 0.2;
+  /* marca de agua */
+  pointer-events: none;
+  z-index: -1;
+  /* 🔑 CLAVE */
 }
