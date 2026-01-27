@@ -75,7 +75,7 @@ export default function PostList({ posts }) {
                             });
                         }
                     }}
-                    className="mx-auto px-6 py-2 border rounded-full text-lg bg-white/70 hover:bg-white transition"
+                    className="mx-auto px-6 py-2 border rounded-xl text-lg bg-white/70 hover:bg-white transition"
                 >
                     {showAll ? "Ver menos" : "Ver más"}
                 </button>
@@ -99,7 +99,7 @@ function FilterButton({ label, value, active, onClick }) {
     return (
         <button
             onClick={() => onClick(value)}
-            className={`px-4 py-2 rounded-full border transition
+            className={`px-4 py-2 rounded-xl border transition
 ${isActive
                     ? "bg-[#5b4a3f] text-white"
                     : "bg-white/60 text-[#5b4a3f]"
