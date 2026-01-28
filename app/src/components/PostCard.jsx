@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 export default function PostCard({ post, onClick }) {
-    if (!post.image) return null;
+    if (typeof post.image !== "string") return null;
 
     return (
         <article
@@ -11,7 +11,7 @@ export default function PostCard({ post, onClick }) {
             <div className="relative aspect-square w-full">
                 <Image
                     src={post.image}
-                    alt={post.title}
+                    alt={post.title || "Imagen del post"}
                     fill
                     className="object-cover"
                 />

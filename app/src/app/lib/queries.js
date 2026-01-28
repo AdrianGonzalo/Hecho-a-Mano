@@ -1,5 +1,5 @@
 export const postsQuery = `
-*[_type == "post"] | order(_createdAt desc) {
+*[_type == "post" && defined(image.asset)] | order(_createdAt desc) {
 _id,
 title,
 description,
