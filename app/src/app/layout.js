@@ -2,7 +2,6 @@ import "./globals.css";
 import { Montserrat } from "next/font/google";
 
 import Navbar from "@/components/Navbar";
-import Header from "@/components/Header";
 import Footer from "@/components/footer";
 
 export const metadata = {
@@ -19,16 +18,18 @@ const montserrat = Montserrat({
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
-      <body className={`flex flex-col min-h-screen ${montserrat.className}`}>
-        {/* <Header /> */}
-        {/* Contenido siempre por encima del fondo */}
-        <Navbar />
-        <main className="relative z-10 flex-grow">
-          {children}
-        </main>
+      <body
+        className={`relative flex flex-col min-h-screen overflow-x-hidden ${montserrat.className}`}
+      >
 
-        {/* Footer opcional */}
-        <Footer />
+        <div className="relative z-10 flex flex-col min-h-screen">
+          <Navbar />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+        </div>
+
       </body>
     </html>
   );

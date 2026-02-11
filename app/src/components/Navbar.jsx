@@ -37,9 +37,19 @@ const Navbar = () => {
             <div className="flex justify-between items-center p-2 max-w-6xl mx-auto">
 
                 {/* Logo */}
-                <div className="w-10 h-10 rounded-full border border-[#DAD1C8] flex items-center justify-center">
+                <div
+                    onClick={() => {
+                        if (window.location.pathname !== "/") {
+                            router.push("/");
+                        } else {
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                        }
+                    }}
+                    className="w-10 h-10 rounded-full border border-[#DAD1C8] flex items-center justify-center cursor-pointer"
+                >
                     <img src="/Logo.png" alt="Logo" className="w-6 h-6" />
                 </div>
+
 
                 {/* Burger animado */}
                 <button
