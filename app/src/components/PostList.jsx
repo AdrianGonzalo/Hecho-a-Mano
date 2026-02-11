@@ -30,13 +30,17 @@ export default function PostList({ posts = [] }) {
         : filteredPosts.slice(0, INITIAL_LIMIT);
 
     return (
-        <section id="galeria" className="w-full py-5 flex flex-col gap-8">
+        <section
+            id="galeria"
+            className="w-full py-5 flex flex-col gap-8 scroll-mt-24"
+        >
+
 
             <div
                 className="sticky top-0 z-30 w-full py-4"
                 style={{ backgroundColor: "var(--bg-main)" }}
             >
-                <div className="max-w-6xl mx-auto px-6">
+                <div className="max-w-6xl mx-auto px-6 mt-12">
 
                     <div className="text-center mb-4">
                         <h2 className="text-4xl font-serif text-[#264037]">

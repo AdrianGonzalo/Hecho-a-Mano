@@ -1,6 +1,6 @@
 export default function ContactCard() {
     return (
-        <section id="contacto" className="mx-auto max-w-3xl rounded-xl p-10 mt-10 text-[#F6F2EE] "
+        <section id="contacto" className="mx-auto max-w-3xl rounded-xl p-10 mt-10 text-[#F6F2EE] mb-10"
             style={{ backgroundColor: "var(--bg-modal)" }}
         >
 
