@@ -11,10 +11,14 @@ export default function PostList({ posts = [] }) {
     const [showAll, setShowAll] = useState(false);
     const [selectedPost, setSelectedPost] = useState(null);
 
-    // 🔐 Seguridad extra
     const safePosts = posts.filter(
         (post) => typeof post.image === "string"
     );
+
+    const categories = [
+        "all",
+        ...new Set(safePosts.map((p) => p.category)),
+    ];
 
     const filteredPosts =
         activeCategory === "all"
@@ -26,51 +30,82 @@ export default function PostList({ posts = [] }) {
         : filteredPosts.slice(0, INITIAL_LIMIT);
 
     return (
-        <section className="w-full flex flex-col gap-10">
-            {/* Filtros */}
-            <div className="flex gap-3 justify-center">
-                {["all", "pirograbado", "piedra", "otros"].map((cat) => (
-                    <FilterButton
-                        key={cat}
-                        label={
-                            cat === "all"
-                                ? "Todo"
-                                : cat.charAt(0).toUpperCase() + cat.slice(1)
-                        }
-                        value={cat}
-                        active={activeCategory}
-                        onClick={(value) => {
-                            setActiveCategory(value);
-                            setShowAll(false);
-                        }}
-                    />
-                ))}
+        <section id="galeria" className="w-full py-5 flex flex-col gap-8">
+
+            <div
+                className="sticky top-0 z-30 w-full py-4"
+                style={{ backgroundColor: "var(--bg-main)" }}
+            >
+                <div className="max-w-6xl mx-auto px-6">
+
+                    <div className="text-center mb-4">
+                        <h2 className="text-4xl font-serif text-[#264037]">
+                            Galería
+                        </h2>
+                        <p className="text-[#264037]/70 text-sm">
+                            Explora y filtra mis trabajos.
+                        </p>
+                    </div>
+
+                    <div className="flex flex-wrap gap-3 justify-center">
+                        {categories.map((cat) => (
+                            <FilterButton
+                                key={cat}
+                                label={cat === "all" ? "Todo" : cat}
+                                value={cat}
+                                active={activeCategory}
+                                onClick={(value) => {
+                                    setActiveCategory(value);
+                                    setShowAll(false);
+                                }}
+                            />
+                        ))}
+                    </div>
+
+                </div>
             </div>
 
             {/* Grid */}
-            <div className="grid grid-cols-2 gap-4 max-w-md mx-auto w-full">
-                {visiblePosts.map((post) => (
-                    <PostCard
-                        key={post._id}
-                        post={post}
-                        onClick={setSelectedPost}
-                    />
-                ))}
+            <div className="px-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto w-full">
+                    {visiblePosts.map((post) => (
+                        <PostCard
+                            key={post._id}
+                            post={post}
+                            onClick={setSelectedPost}
+                        />
+                    ))}
+                </div>
             </div>
 
-            {/* Botón ver más */}
-            {filteredPosts.length > INITIAL_LIMIT && (
-                <button
-                    onClick={() => {
-                        setShowAll(!showAll);
-                        if (showAll) {
+            {/* Botón VER MÁS normal */}
+            {filteredPosts.length > INITIAL_LIMIT && !showAll && (
+                <div className="px-6">
+                    <button
+                        onClick={() => setShowAll(true)}
+                        className="mx-auto block px-6 py-2 rounded-full border border-[#DAD1C8] bg-white/60 hover:bg-white transition text-sm"
+                    >
+                        Ver más
+                    </button>
+                </div>
+            )}
+
+            {/* Botón VER MENOS sticky abajo */}
+            {filteredPosts.length > INITIAL_LIMIT && showAll && (
+                <div className="sticky bottom-6 flex justify-center z-10">
+                    <button
+                        onClick={() => {
+                            setShowAll(false);
                             window.scrollTo({ top: 0, behavior: "smooth" });
-                        }
-                    }}
-                    className="mx-auto px-6 py-2 border rounded-xl text-lg bg-white/70 hover:bg-white transition"
-                >
-                    {showAll ? "Ver menos" : "Ver más"}
-                </button>
+                        }}
+                        className="px-6 py-3 rounded-full 
+                                   bg-[#2F4B41] text-white 
+                                   shadow-lg hover:scale-105 
+                                   transition"
+                    >
+                        Ver menos
+                    </button>
+                </div>
             )}
 
             {/* Modal */}
@@ -88,10 +123,12 @@ function FilterButton({ label, value, active, onClick }) {
     return (
         <button
             onClick={() => onClick(value)}
-            className={`px-4 py-2 rounded-xl border transition ${isActive
-                    ? "bg-[#5b4a3f] text-white"
-                    : "bg-white/60 text-[#5b4a3f]"
-                }`}
+            className={`px-5 py-2 rounded-full text-sm transition whitespace-nowrap
+        ${isActive
+                    ? "bg-[#2F4B41] text-white shadow"
+                    : "bg-[#F1EBE4] text-[#264037]/70 hover:bg-[#E5DED6]"
+                }
+      `}
         >
             {label}
         </button>

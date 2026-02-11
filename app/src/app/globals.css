@@ -1,49 +1,36 @@
 @import "tailwindcss";
 
 /* -----------------------------
-   Variables
+   Colores
 ----------------------------- */
 :root {
-  --backgroundHome: url("/textures/wall2.png");
-}
+  --bg-main: #FAF8F6;
+  --bg-pricing: #F1EBE4;
+  --border-soft: #DAD1C8;
 
-/* -----------------------------
-   Tipografías
------------------------------ */
-.font-titulo {
-  font-family: "Fleur De Leah", cursive;
-}
+  --text-main: #264037;
+  --text-accent: #C37B55;
 
-.font-normal {
-  font-family: "Faculty Glyphic", sans-serif;
+  --bg-modal: #465A52;
 }
 
 /* -----------------------------
    Fondo base (textura)
 ----------------------------- */
 body {
-  background-image: var(--backgroundHome);
-  background-repeat: repeat;
-  background-color: #f5f5dc;
+  color: var(--text-main);
+  background-color: var(--bg-main);
   position: relative;
   z-index: 0;
 }
 
-/* -----------------------------
-   Logo fijo detrás de TODO
------------------------------ */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: url("/Logo.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 400px;
-  /* ajusta a tu gusto */
-  opacity: 0.0;
-  /* marca de agua */
-  pointer-events: none;
-  z-index: -1;
-  /* 🔑 CLAVE */
+/* Offset para navbar sticky */
+[id] {
+  scroll-margin-top: 90px;
+  /* ajusta según altura real del navbar */
+}
+
+/* Scroll suave global */
+html {
+  scroll-behavior: smooth;
 }
