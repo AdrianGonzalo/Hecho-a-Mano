@@ -18,7 +18,7 @@ export default function Aboutme() {
                     <div className="relative">
                         <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-md">
                             <Image
-                                src="/about.jpg" // 👉 cambia por tu imagen
+                                src="/foto.png"
                                 alt="Trabajando en manualidades"
                                 fill
                                 className="object-cover"
@@ -26,7 +26,7 @@ export default function Aboutme() {
                         </div>
 
                         {/* Badge */}
-                        <span className="absolute bottom-4 right-4 bg-[#C37B55] text-white text-xs px-4 py-2 rounded-lg shadow">
+                        <span className="absolute bottom-4 right-4 bg-[#465A52] text-white text-xs px-4 py-2 rounded-lg shadow">
                             Desde 2022
                         </span>
                     </div>

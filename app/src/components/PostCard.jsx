@@ -10,14 +10,16 @@ export default function PostCard({ post, onClick }) {
         >
             <div className="overflow-hidden rounded-xl bg-white border border-[#E5DED6] shadow-xl">
 
-                <div className="relative aspect-square w-full">
+                <div className="relative w-full">
                     <Image
                         src={post.image}
                         alt={post.title || "Imagen del post"}
-                        fill
-                        className="object-cover group-hover:scale-105 transition duration-500"
+                        width={800}
+                        height={800}
+                        className="w-full h-auto object-contain group-hover:scale-105 transition duration-500"
                     />
                 </div>
+
 
             </div>
 

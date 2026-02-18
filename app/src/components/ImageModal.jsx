@@ -37,14 +37,17 @@ export default function ImageModal({ post, onClose }) {
 
 
                 {/* Imagen */}
-                <div className="relative w-full aspect-square rounded-2xl overflow-hidden">
+                <div className="relative w-full max-h-[85vh] flex justify-center">
                     <Image
                         src={post.image}
                         alt={post.title || "Imagen ampliada"}
-                        fill
-                        className="object-cover"
+                        width={1200}
+                        height={1200}
+                        className="max-h-[85vh] w-auto max-w-full object-contain rounded-2xl"
+                        priority
                     />
                 </div>
+
 
                 {/* Info */}
                 <div className="mt-6 text-center text-white">
