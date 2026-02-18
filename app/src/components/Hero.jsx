@@ -18,9 +18,7 @@ export default function Hero() {
     return (
         <section
             id="inicio"
-            className="mt-10 min-h-[85vh] flex flex-col justify-between bg-[#FAF8F6] px-4 pb-8"
-        >
-
+            className="relative mt-10 min-h-[85vh] flex flex-col justify-between bg-[#FAF8F6] px-4 pb-8">
             {/* Contenido centrado */}
             <div className="flex flex-col items-center justify-center flex-grow text-center max-w-4xl lg:max-w-5xl mx-auto w-full">
 
