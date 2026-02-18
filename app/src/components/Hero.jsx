@@ -18,25 +18,25 @@ export default function Hero() {
     return (
         <section
             id="inicio"
-            className="mt-10 flex flex-col justify-between bg-[#FAF8F6] px-4 pb-8"
+            className="mt-10 min-h-[85vh] flex flex-col justify-between bg-[#FAF8F6] px-4 pb-8"
         >
 
-            {/* Contenido centrado vertical */}
-            <div className="flex flex-col items-center justify-center flex-grow text-center max-w-3xl mx-auto w-full">
+            {/* Contenido centrado */}
+            <div className="flex flex-col items-center justify-center flex-grow text-center max-w-4xl lg:max-w-5xl mx-auto w-full">
 
                 {/* Logo */}
-                <div className="flex justify-center mb-8">
-                    <div className="w-40 h-40 rounded-full border-4 border-double border-[#DAD1C8] flex items-center justify-center">
+                <div className="flex justify-center mb-8 md:mb-10">
+                    <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-double border-[#DAD1C8] flex items-center justify-center">
                         <img
                             src="/Logo.png"
                             alt="Hecho a mano"
-                            className="w-24 h-24"
+                            className="w-20 h-20 md:w-24 md:h-24"
                         />
                     </div>
                 </div>
 
                 {/* Eyebrow */}
-                <div className="flex flex-col items-center mb-8">
+                <div className="flex flex-col items-center mb-8 md:mb-10">
                     <p className="text-xs tracking-[0.3em] text-[#C37B55] mb-2">
                         MANOS CREATIVAS
                     </p>
@@ -44,7 +44,17 @@ export default function Hero() {
                 </div>
 
                 {/* Title */}
-                <h1 className="text-[clamp(3rem,8vw,4.5rem)] leading-none font-semibold font-serif text-[#264037]">
+                <h1
+                    className="
+                        text-[clamp(3rem,7vw,6rem)]
+                        leading-[0.95]
+                        md:leading-[0.9]
+                        font-semibold
+                        font-serif
+                        text-[#264037]
+                        tracking-tight
+                    "
+                >
                     Hecho <br />
                     <span style={{ color: "var(--text-accent)" }}>
                         a mano
@@ -52,7 +62,7 @@ export default function Hero() {
                 </h1>
 
                 {/* Subtitle */}
-                <p className="mt-6 text-base opacity-80">
+                <p className="mt-6 text-base md:text-lg lg:text-xl opacity-80">
                     Dando vida a{" "}
                     <span className="text-accent transition-opacity duration-500 font-bold">
                         {words[index]}
@@ -60,8 +70,8 @@ export default function Hero() {
                 </p>
 
                 {/* Quote */}
-                <div className="mt-10 flex justify-center">
-                    <blockquote className="max-w-xl bg-[#F6F2EE] border border-[#DAD1C8] rounded-xl px-6 py-5 text-sm text-[#264037]/80">
+                <div className="mt-10 md:mt-14 flex justify-center">
+                    <blockquote className="max-w-xl bg-[#F6F2EE] border border-[#DAD1C8] rounded-xl px-6 py-5 text-sm md:text-base text-[#264037]/80">
                         <p className="italic font-semibold">
                             “Cada pieza cuenta una historia, cada detalle guarda un pedacito
                             de paciencia y cariño.”
@@ -77,9 +87,9 @@ export default function Hero() {
                 </div>
 
                 {/* Stats */}
-                <div className="mt-12 grid grid-cols-3 gap-6 text-center text-sm">
+                <div className="mt-12 md:mt-16 grid grid-cols-3 gap-6 md:gap-10 text-center text-sm md:text-base">
                     <div>
-                        <p className="text-lg font-semibold text-[#264037] font-serif">
+                        <p className="text-lg md:text-2xl font-semibold text-[#264037] font-serif">
                             3
                         </p>
                         <p className="uppercase tracking-wide text-[#264037]/60">
@@ -88,7 +98,7 @@ export default function Hero() {
                     </div>
 
                     <div>
-                        <p className="text-lg font-semibold text-[#C37B55] font-serif">
+                        <p className="text-lg md:text-2xl font-semibold text-[#C37B55] font-serif">
                             100%
                         </p>
                         <p className="uppercase tracking-wide text-[#264037]/60">
@@ -97,7 +107,7 @@ export default function Hero() {
                     </div>
 
                     <div>
-                        <p className="text-lg font-semibold text-[#264037] font-serif">
+                        <p className="text-lg md:text-2xl font-semibold text-[#264037] font-serif">
                             Único
                         </p>
                         <p className="uppercase tracking-wide text-[#264037]/60">
@@ -108,7 +118,8 @@ export default function Hero() {
 
             </div>
 
-            <div className="flex justify-around text-[10px] tracking-[0.3em] uppercase text-[#264037] mt-20 ">
+            {/* Links inferiores */}
+            <div className="flex justify-around text-[10px] tracking-[0.3em] uppercase text-[#264037] mt-20">
 
                 <a
                     href="#galeria"

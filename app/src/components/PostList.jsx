@@ -11,20 +11,33 @@ export default function PostList({ posts = [] }) {
     const [showAll, setShowAll] = useState(false);
     const [selectedPost, setSelectedPost] = useState(null);
 
+    // Seguridad: solo posts con imagen válida
     const safePosts = posts.filter(
         (post) => typeof post.image === "string"
     );
 
+    // Contador por categoría
+    const categoryCounts = safePosts.reduce((acc, post) => {
+        if (!post.category) return acc;
+        acc[post.category] = (acc[post.category] || 0) + 1;
+        return acc;
+    }, {});
+
+    // Lista de categorías dinámicas
     const categories = [
         "all",
         ...new Set(safePosts.map((p) => p.category)),
     ];
 
+    // Posts filtrados
     const filteredPosts =
         activeCategory === "all"
             ? safePosts
-            : safePosts.filter((post) => post.category === activeCategory);
+            : safePosts.filter(
+                (post) => post.category === activeCategory
+            );
 
+    // Límite inicial
     const visiblePosts = showAll
         ? filteredPosts
         : filteredPosts.slice(0, INITIAL_LIMIT);
@@ -34,8 +47,7 @@ export default function PostList({ posts = [] }) {
             id="galeria"
             className="w-full py-5 flex flex-col gap-8 scroll-mt-24"
         >
-
-
+            {/* Header Sticky */}
             <div
                 className="sticky top-0 z-30 w-full py-4"
                 style={{ backgroundColor: "var(--bg-main)" }}
@@ -43,35 +55,47 @@ export default function PostList({ posts = [] }) {
                 <div className="max-w-6xl mx-auto px-6 mt-12">
 
                     <div className="text-center mb-4">
-                        <h2 className="text-4xl font-serif text-[#264037]">
+                        <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-[#264037] tracking-tight">
+
                             Galería
                         </h2>
-                        <p className="text-[#264037]/70 text-sm">
+                        <p className="text-[#264037]/70 text-sm py-2">
                             Explora y filtra mis trabajos.
                         </p>
                     </div>
 
+                    {/* Filtros con contador */}
                     <div className="flex flex-wrap gap-3 justify-center">
-                        {categories.map((cat) => (
-                            <FilterButton
-                                key={cat}
-                                label={cat === "all" ? "Todo" : cat}
-                                value={cat}
-                                active={activeCategory}
-                                onClick={(value) => {
-                                    setActiveCategory(value);
-                                    setShowAll(false);
-                                }}
-                            />
-                        ))}
-                    </div>
+                        {categories.map((cat) => {
+                            const count =
+                                cat === "all"
+                                    ? safePosts.length
+                                    : categoryCounts[cat] || 0;
 
+                            return (
+                                <FilterButton
+                                    key={cat}
+                                    label={
+                                        cat === "all"
+                                            ? `Todo (${count})`
+                                            : `${cat} (${count})`
+                                    }
+                                    value={cat}
+                                    active={activeCategory}
+                                    onClick={(value) => {
+                                        setActiveCategory(value);
+                                        setShowAll(false);
+                                    }}
+                                />
+                            );
+                        })}
+                    </div>
                 </div>
             </div>
 
             {/* Grid */}
             <div className="px-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto w-full">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8 max-w-7xl mx-auto w-full">
                     {visiblePosts.map((post) => (
                         <PostCard
                             key={post._id}
@@ -82,7 +106,7 @@ export default function PostList({ posts = [] }) {
                 </div>
             </div>
 
-            {/* Botón VER MÁS normal */}
+            {/* Botón VER MÁS */}
             {filteredPosts.length > INITIAL_LIMIT && !showAll && (
                 <div className="px-6">
                     <button
@@ -94,7 +118,7 @@ export default function PostList({ posts = [] }) {
                 </div>
             )}
 
-            {/* Botón VER MENOS sticky abajo */}
+            {/* Botón VER MENOS */}
             {filteredPosts.length > INITIAL_LIMIT && showAll && (
                 <div className="sticky bottom-6 flex justify-center z-10">
                     <button
@@ -128,11 +152,11 @@ function FilterButton({ label, value, active, onClick }) {
         <button
             onClick={() => onClick(value)}
             className={`px-5 py-2 rounded-full text-sm transition whitespace-nowrap
-        ${isActive
+            ${isActive
                     ? "bg-[#2F4B41] text-white shadow"
                     : "bg-[#F1EBE4] text-[#264037]/70 hover:bg-[#E5DED6]"
                 }
-      `}
+            `}
         >
             {label}
         </button>

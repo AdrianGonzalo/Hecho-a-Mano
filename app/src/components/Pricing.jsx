@@ -27,7 +27,7 @@ export default function PricingSection() {
     return (
         <section
             id="precios"
-            className="w-full py-10 px-6 rounded-xl mt-20"
+            className="w-full max-w-3xl py-10 px-6 rounded-xl mt-20"
             style={{ backgroundColor: "var(--bg-pricing)" }}
         >
             <div className="max-w-4xl mx-auto">
