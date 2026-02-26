@@ -66,12 +66,12 @@ export default function PostList({ posts = [] }) {
     return (
         <section
             id="galeria"
-            className="w-full flex flex-col gap-8"
+            className="w-full flex flex-col gap-6"
         >
 
             {/* Header Sticky */}
             <div
-                className="sticky top-0 z-30 w-full py-4"
+                className="sticky top-0 z-30 w-full py-4 bg-#FAF8F6"
                 style={{ backgroundColor: "var(--bg-main)" }}
             >
                 <div className="max-w-6xl mx-auto px-6 mt-12">
