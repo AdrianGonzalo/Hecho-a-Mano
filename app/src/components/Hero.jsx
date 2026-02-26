@@ -18,7 +18,7 @@ export default function Hero() {
     return (
         <section
             id="inicio"
-            className="relative min-h-screen flex flex-col px-12 overflow-hidden -m-8"
+            className="relative min-h-screen flex flex-col px-6 overflow-hidden"
         >
 
             {/* TEXTURA */}
