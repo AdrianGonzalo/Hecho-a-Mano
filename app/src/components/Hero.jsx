@@ -90,7 +90,7 @@ export default function Hero() {
                 </div>
 
                 {/* Stats */}
-                {/* <div className="mt-8 md:mt-16 grid grid-cols-3 gap-6 md:gap-10 text-center text-sm md:text-base">
+                <div className="mt-8 md:mt-16 grid grid-cols-3 gap-6 md:gap-10 text-center text-sm md:text-base">
                     <div>
                         <p className="text-lg md:text-2xl font-semibold text-[#264037] font-serif">
                             3
@@ -117,7 +117,7 @@ export default function Hero() {
                             Cada pieza
                         </p>
                     </div>
-                </div> */}
+                </div>
 
                 {/* Links inferiores */}
                 <div className="flex justify-around text-[11px] tracking-[0.3em] uppercase text-[#264037] gap-20 mt-16 animate-bounce font-semibold ">

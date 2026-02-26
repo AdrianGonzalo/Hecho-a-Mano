@@ -66,7 +66,7 @@ export default function PostList({ posts = [] }) {
     return (
         <section
             id="galeria"
-            className="w-full flex flex-col gap-6"
+            className="w-full flex flex-col gap-6 mt-10"
         >
 
             {/* Header Sticky */}
