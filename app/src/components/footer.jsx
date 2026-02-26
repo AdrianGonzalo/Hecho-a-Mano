@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -17,28 +19,13 @@ export default function Footer() {
         </h3>
 
         {/* Tagline */}
-        <p className="text-xs text-[#264037]/70">
+        <p className="text-xs text-[#264037]/70 mb-3">
           Hecho a Mano con mucho cariño © {currentYear} .
         </p>
 
-        {/* Links */}
-        {/* <div className="flex justify-center gap-8 text-sm text-[#264037]/80">
-          <a
-            href="https://instagram.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[#C37B55] transition-colors"
-          >
-            Instagram
-          </a>
-
-          <a
-            href="mailto:hola@manoscreativas.es"
-            className="hover:text-[#C37B55] transition-colors"
-          >
-            Email
-          </a>
-        </div> */}
+        <Link href="/legal" className="text-xs text-[#264037]/70 underline">
+          Aviso Legal y Privacidad
+        </Link>
 
       </div>
     </footer>

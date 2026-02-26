@@ -1,84 +1,25 @@
 export default function ContactCard() {
     return (
-        <section id="contacto" className="mx-auto max-w-3xl rounded-xl p-10 mt-10 text-[#F6F2EE] mb-10"
+        <section
+            id="contacto"
+            className="mx-auto max-w-2xl rounded-xl p-6 mt-16 text-center text-[#F6F2EE] mb-16"
             style={{ backgroundColor: "var(--bg-modal)" }}
         >
-
-            {/* Eyebrow */}
-            <p className="text-xs tracking-[0.35em] uppercase opacity-70 mb-6">
-                Contacto
-            </p>
-
-            {/* Title */}
-            <h2 className="text-4xl md:text-5xl font-serif font-semibold mb-6 leading-tight">
-                ¿Te gusta algo? Hablamos
+            <h2 className="text-4xl md:text-5xl font-serif font-semibold mb-6">
+                ¿Te gusta algo?
             </h2>
 
-            {/* Description */}
-            <p className="text-base opacity-80 leading-relaxed max-w-xl mb-10">
-                Si quieres una pieza de las que ves o un encargo personalizado, escríbeme sin compromiso.
+            <p className="opacity-80 mb-10">
+                Escríbeme directamente por WhatsApp y hablamos sin compromiso.
             </p>
 
-            {/* Contact Items */}
-            <div className="flex flex-col gap-8">
-
-                {/* Email */}
-                <a
-                    href="mailto:hola@manoscreativas.es"
-                    className="flex items-center gap-5 group"
-                >
-                    <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center transition group-hover:bg-white/20">
-                        ✉️
-                    </div>
-                    <div>
-                        <p className="font-medium text-lg">
-                            hola@ejemplo.es
-                        </p>
-                        <p className="text-sm opacity-60">
-                            Email
-                        </p>
-                    </div>
-                </a>
-
-                {/* Instagram */}
-                <a
-                    href="https://instagram.com/"
-                    target="_blank"
-                    className="flex items-center gap-5 group"
-                >
-                    <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center transition group-hover:bg-white/20">
-                        📸
-                    </div>
-                    <div>
-                        <p className="font-medium text-lg">
-                            @ejemplo
-                        </p>
-                        <p className="text-sm opacity-60">
-                            Instagram
-                        </p>
-                    </div>
-                </a>
-
-                {/* WhatsApp */}
-                <a
-                    href="https://wa.me/34600000000"
-                    target="_blank"
-                    className="flex items-center gap-5 group"
-                >
-                    <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center transition group-hover:bg-white/20">
-                        📞
-                    </div>
-                    <div>
-                        <p className="font-medium text-lg">
-                            +34 600 000 000
-                        </p>
-                        <p className="text-sm opacity-60">
-                            WhatsApp
-                        </p>
-                    </div>
-                </a>
-
-            </div>
+            <a
+                href="https://wa.me/34600000000?text=Hola,%20me%20gustaría%20hacer%20un%20encargo%20personalizado.%20¿Podemos%20hablar?"
+                target="_blank"
+                className="inline-flex items-center gap-4 px-8 py-4 rounded-full bg-green-500 hover:bg-green-600 transition text-white text-lg font-medium shadow-lg hover:scale-105"
+            >
+                📱 +34 633 75 64 40
+            </a>
         </section>
     );
 }
