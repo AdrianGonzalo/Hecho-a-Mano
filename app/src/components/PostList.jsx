@@ -77,10 +77,10 @@ export default function PostList({ posts = [] }) {
                 <div className="max-w-6xl mx-auto px-6 mt-12">
 
                     <div className="text-center mb-4">
-                        <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-[#264037] tracking-tight">
+                        <h2 className="text-6xl md:text-7xl lg:text-8xl font-serif text-[#264037] tracking-tight">
                             Galería
                         </h2>
-                        <p className="text-[#264037]/70 text-sm py-2">
+                        <p className="text-lg mt-2 py-2">
                             Explora y filtra mis trabajos.
                         </p>
                     </div>
@@ -132,7 +132,7 @@ export default function PostList({ posts = [] }) {
                 <div className="px-6">
                     <button
                         onClick={() => setShowAll(true)}
-                        className="mx-auto block px-6 py-2 rounded-full border border-[#DAD1C8] bg-white/60 hover:bg-white transition text-sm"
+                        className="mx-auto block px-6 py-2 rounded-full border border-[#DAD1C8] bg-white/60 hover:bg-white transition text-lg"
                     >
                         Ver más
                     </button>
@@ -149,7 +149,7 @@ export default function PostList({ posts = [] }) {
                             const section = document.getElementById("galeria");
                             section?.scrollIntoView({ behavior: "smooth" });
                         }}
-                        className="px-6 py-3 rounded-full bg-[#2F4B41] text-white shadow-lg"
+                        className="px-6 py-3 rounded-full bg-[#2F4B41] text-white shadow-lg text-lg"
                     >
                         Ver menos
                     </button>

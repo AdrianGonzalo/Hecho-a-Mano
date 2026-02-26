@@ -39,7 +39,7 @@ export default function Hero() {
 
                 {/* Eyebrow */}
                 <div className="flex flex-col items-center mb-8 md:mb-10">
-                    <p className="text-xs tracking-[0.3em] text-[#C37B55] mb-2">
+                    <p className="text-lg tracking-[0.3em] text-[#C37B55] mb-2">
                         MANOS CREATIVAS
                     </p>
                     <span className="block w-16 h-px bg-[#DAD1C8]" />
@@ -48,13 +48,14 @@ export default function Hero() {
                 {/* Title */}
                 <h1
                     className="
-                        text-[clamp(3rem,7vw,6rem)]
+                        text-[clamp(4rem,7vw,6rem)]
                         leading-[0.95]
                         md:leading-[0.9]
                         font-semibold
                         font-serif
                         text-[#264037]
                         tracking-tight
+                        text-[var(--text-main)]
                     "
                 >
                     Hecho <br />
@@ -89,7 +90,7 @@ export default function Hero() {
                 </div>
 
                 {/* Stats */}
-                <div className="mt-8 md:mt-16 grid grid-cols-3 gap-6 md:gap-10 text-center text-sm md:text-base">
+                {/* <div className="mt-8 md:mt-16 grid grid-cols-3 gap-6 md:gap-10 text-center text-sm md:text-base">
                     <div>
                         <p className="text-lg md:text-2xl font-semibold text-[#264037] font-serif">
                             3
@@ -116,10 +117,10 @@ export default function Hero() {
                             Cada pieza
                         </p>
                     </div>
-                </div>
+                </div> */}
 
                 {/* Links inferiores */}
-                <div className="flex justify-around text-[10px] tracking-[0.3em] uppercase text-[#264037] gap-20 mt-16 animate-bounce">
+                <div className="flex justify-around text-[11px] tracking-[0.3em] uppercase text-[#264037] gap-20 mt-16 animate-bounce font-semibold ">
 
                     <a
                         href="#galeria"
