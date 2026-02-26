@@ -98,15 +98,6 @@ const Navbar = () => {
                     </li>
 
                     <li>
-                        <button
-                            onClick={() => goToSection("precios")}
-                            className="hover:text-[#C37B55] transition"
-                        >
-                            Precios
-                        </button>
-                    </li>
-
-                    <li>
                         <a
                             href="/aboutme"
                             onClick={() => setOpen(false)}

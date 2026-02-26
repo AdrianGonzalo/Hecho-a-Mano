@@ -1,15 +1,36 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PostCard from "./PostCard";
 import ImageModal from "./ImageModal";
-
-const INITIAL_LIMIT = 4;
 
 export default function PostList({ posts = [] }) {
     const [activeCategory, setActiveCategory] = useState("all");
     const [showAll, setShowAll] = useState(false);
     const [selectedPost, setSelectedPost] = useState(null);
+    const [initialLimit, setInitialLimit] = useState(4);
+
+    // Detectar tamaño de pantalla y actualizar límite
+    useEffect(() => {
+        const updateLimit = () => {
+            const width = window.innerWidth;
+
+            if (width >= 1536) {
+                setInitialLimit(10); // 2xl
+            } else if (width >= 1280) {
+                setInitialLimit(8); // xl
+            } else if (width >= 1024) {
+                setInitialLimit(6); // lg
+            } else {
+                setInitialLimit(4); // móvil
+            }
+        };
+
+        updateLimit();
+        window.addEventListener("resize", updateLimit);
+
+        return () => window.removeEventListener("resize", updateLimit);
+    }, []);
 
     // Seguridad: solo posts con imagen válida
     const safePosts = posts.filter(
@@ -37,16 +58,17 @@ export default function PostList({ posts = [] }) {
                 (post) => post.category === activeCategory
             );
 
-    // Límite inicial
+    // Límite dinámico
     const visiblePosts = showAll
         ? filteredPosts
-        : filteredPosts.slice(0, INITIAL_LIMIT);
+        : filteredPosts.slice(0, initialLimit);
 
     return (
         <section
             id="galeria"
-            className="w-full py-5 flex flex-col gap-8 scroll-mt-24"
+            className="w-full flex flex-col gap-8"
         >
+
             {/* Header Sticky */}
             <div
                 className="sticky top-0 z-30 w-full py-4"
@@ -56,7 +78,6 @@ export default function PostList({ posts = [] }) {
 
                     <div className="text-center mb-4">
                         <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-[#264037] tracking-tight">
-
                             Galería
                         </h2>
                         <p className="text-[#264037]/70 text-sm py-2">
@@ -107,7 +128,7 @@ export default function PostList({ posts = [] }) {
             </div>
 
             {/* Botón VER MÁS */}
-            {filteredPosts.length > INITIAL_LIMIT && !showAll && (
+            {filteredPosts.length > initialLimit && !showAll && (
                 <div className="px-6">
                     <button
                         onClick={() => setShowAll(true)}
@@ -119,7 +140,7 @@ export default function PostList({ posts = [] }) {
             )}
 
             {/* Botón VER MENOS */}
-            {filteredPosts.length > INITIAL_LIMIT && showAll && (
+            {filteredPosts.length > initialLimit && showAll && (
                 <div className="sticky bottom-6 flex justify-center z-10">
                     <button
                         onClick={() => {

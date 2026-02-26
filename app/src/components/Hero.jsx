@@ -18,9 +18,13 @@ export default function Hero() {
     return (
         <section
             id="inicio"
-            className="relative mt-10 min-h-[85vh] flex flex-col justify-between bg-[#FAF8F6] px-4 pb-8">
+            className="relative min-h-screen flex flex-col px-4 overflow-hidden"
+        >
+
+            {/* TEXTURA */}
+            <div className="absolute inset-0 -z-10 pointer-events-none opacity-[0.35] mix-blend-multiply bg-[url('/textures/paperg.png')] bg-center" />
             {/* Contenido centrado */}
-            <div className="flex flex-col items-center justify-center flex-grow text-center max-w-4xl lg:max-w-5xl mx-auto w-full">
+            <div className="flex-1 flex flex-col items-center justify-center text-center max-w-4xl lg:max-w-5xl mx-auto w-full">
 
                 {/* Logo */}
                 <div className="flex justify-center mb-8 md:mb-10">
@@ -68,7 +72,7 @@ export default function Hero() {
                 </p>
 
                 {/* Quote */}
-                <div className="mt-10 md:mt-14 flex justify-center">
+                <div className="mt-8 md:mt-14 flex justify-center">
                     <blockquote className="max-w-xl bg-[#F6F2EE] border border-[#DAD1C8] rounded-xl px-6 py-5 text-sm md:text-base text-[#264037]/80">
                         <p className="italic font-semibold">
                             “Cada pieza cuenta una historia, cada detalle guarda un pedacito
@@ -85,7 +89,7 @@ export default function Hero() {
                 </div>
 
                 {/* Stats */}
-                <div className="mt-12 md:mt-16 grid grid-cols-3 gap-6 md:gap-10 text-center text-sm md:text-base">
+                <div className="mt-8 md:mt-16 grid grid-cols-3 gap-6 md:gap-10 text-center text-sm md:text-base">
                     <div>
                         <p className="text-lg md:text-2xl font-semibold text-[#264037] font-serif">
                             3
@@ -114,32 +118,35 @@ export default function Hero() {
                     </div>
                 </div>
 
+                {/* Links inferiores */}
+                <div className="flex justify-around text-[10px] tracking-[0.3em] uppercase text-[#264037] gap-20 mt-16 animate-bounce">
+
+                    <a
+                        href="#galeria"
+                        className="group flex flex-col items-center gap-2"
+                    >
+                        <span>Explorar galería</span>
+                        <span>
+                            ↓
+                        </span>
+                    </a>
+
+                    <a
+                        href="#contacto"
+                        className="group flex flex-col items-center gap-2"
+                    >
+                        <span>Hablemos</span>
+                        <span>
+                            ↓
+                        </span>
+                    </a>
+
+                </div>
+                <div
+                    className="bg-[url('/textures/paperg.png')]"
+                />
             </div>
 
-            {/* Links inferiores */}
-            <div className="flex justify-around text-[10px] tracking-[0.3em] uppercase text-[#264037] mt-20">
-
-                <a
-                    href="#galeria"
-                    className="group flex flex-col items-center gap-2 hover:text-[#C37B55] transition-colors"
-                >
-                    <span>Explorar galería</span>
-                    <span className="animate-bounce group-hover:animate-none">
-                        ↓
-                    </span>
-                </a>
-
-                <a
-                    href="#precios"
-                    className="group flex flex-col items-center gap-2 hover:text-[#C37B55] transition-colors"
-                >
-                    <span>Ver precios</span>
-                    <span className="animate-bounce group-hover:animate-none">
-                        ↓
-                    </span>
-                </a>
-
-            </div>
         </section>
     );
 }
