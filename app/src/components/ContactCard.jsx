@@ -2,7 +2,7 @@ export default function ContactCard() {
     return (
         <section
             id="contacto"
-            className="mx-auto max-w-2xl rounded-xl p-6 mt-16 text-center text-[#F6F2EE] mb-16"
+            className="mx-auto max-w-2xl rounded-xl p-6 mt-16 text-center text-[#F6F2EE] mb-16 mt-30"
             style={{ backgroundColor: "var(--bg-modal)" }}
         >
             <h2 className="text-4xl md:text-5xl font-serif font-semibold mb-6">

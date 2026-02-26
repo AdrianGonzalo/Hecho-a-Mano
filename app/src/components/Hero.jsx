@@ -18,13 +18,13 @@ export default function Hero() {
     return (
         <section
             id="inicio"
-            className="relative min-h-screen flex flex-col px-6 overflow-hidden"
+            className="relative min-h-[100dvh] flex flex-col px-6 md:px-12 lg:px-16 overflow-hidden"
         >
 
             {/* TEXTURA */}
             <div className="absolute inset-0 -z-10 pointer-events-none opacity-[0.35] mix-blend-multiply bg-[url('/textures/paperg.png')] bg-center" />
             {/* Contenido centrado */}
-            <div className="flex-1 flex flex-col items-center justify-center text-center max-w-4xl lg:max-w-5xl mx-auto w-full">
+            <div className="flex flex-col items-center text-center max-w-4xl lg:max-w-5xl mx-auto w-full pt-20 pb-16">
 
                 {/* Logo */}
                 <div className="flex justify-center mb-8 md:mb-10">

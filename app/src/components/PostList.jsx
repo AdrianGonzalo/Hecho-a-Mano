@@ -129,7 +129,7 @@ export default function PostList({ posts = [] }) {
 
             {/* Botón VER MÁS */}
             {filteredPosts.length > initialLimit && !showAll && (
-                <div className="px-6">
+                <div className="px-6 mt-10">
                     <button
                         onClick={() => setShowAll(true)}
                         className="mx-auto block px-6 py-2 rounded-full border border-[#DAD1C8] bg-white/60 hover:bg-white transition text-lg"
