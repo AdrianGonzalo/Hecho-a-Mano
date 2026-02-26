@@ -145,12 +145,11 @@ export default function PostList({ posts = [] }) {
                     <button
                         onClick={() => {
                             setShowAll(false);
-                            window.scrollTo({ top: 0, behavior: "smooth" });
+
+                            const section = document.getElementById("galeria");
+                            section?.scrollIntoView({ behavior: "smooth" });
                         }}
-                        className="px-6 py-3 rounded-full 
-                                   bg-[#2F4B41] text-white 
-                                   shadow-lg hover:scale-105 
-                                   transition"
+                        className="px-6 py-3 rounded-full bg-[#2F4B41] text-white shadow-lg"
                     >
                         Ver menos
                     </button>
