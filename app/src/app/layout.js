@@ -5,8 +5,22 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/footer";
 
 export const metadata = {
-  title: "Hecho a Mano",
-  description: "Productos hechos a mano",
+  title: {
+    default: "Artesanía de Corazón | Hecho a mano por Alba",
+    template: "%s | Artesanía de Corazón",
+  },
+  description:
+    "Piezas artesanales únicas hechas a mano por Alba. Descubre creaciones originales llenas de detalle, paciencia y cariño.",
+  metadataBase: new URL("https://www.artesaniadecorazon.com"),
+  openGraph: {
+    title: "Artesanía de Corazón | Hecho a mano por Alba",
+    description:
+      "Creaciones artesanales hechas a mano con dedicación y cariño.",
+    url: "https://www.artesaniadecorazon.com",
+    siteName: "Artesanía de Corazón",
+    locale: "es_ES",
+    type: "website",
+  },
 };
 
 const montserrat = Montserrat({
